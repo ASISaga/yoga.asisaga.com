@@ -1,0 +1,37 @@
+# Site settings
+title: "Yoga ASISaga - The Mind of Artificial Superintelligence"
+description: "Exploring the parts of mind in the context of Artificial Superintelligence"
+baseurl: ""
+url: "https://yoga.asisaga.com"
+
+# Theme settings
+remote_theme: ASISaga/theme.asisaga.com
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
