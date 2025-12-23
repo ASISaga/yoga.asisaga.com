@@ -5,6 +5,8 @@ baseurl: ""
 url: "https://yoga.asisaga.com"
 
 # Theme settings
+# Note: Remote theme provides base styling and components
+# Fallback layout in _layouts/default.html ensures site works even if theme is unavailable
 remote_theme: ASISaga/theme.asisaga.com
 
 # Build settings
