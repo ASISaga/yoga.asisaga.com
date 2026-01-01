@@ -1,39 +1,31 @@
-# Site settings
+# # theme: jekyll-theme-minimal
 title: "Yoga ASISaga - The Mind of Artificial Superintelligence"
 description: "Exploring the parts of mind in the context of Artificial Superintelligence"
-baseurl: ""
-url: "https://yoga.asisaga.com"
+ignore_theme_config: true
 
-# Theme settings
-# Note: Remote theme provides base styling and components
-# Fallback layout in _layouts/default.html ensures site works even if theme is unavailable
+sass:
+  load_paths:
+    - _sass
+    - assets/css
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-remote-theme
+
 remote_theme: ASISaga/theme.asisaga.com
 
-# Build settings
-markdown: kramdown
-permalink: pretty
-
-# Exclude from processing
+# Exclude specific directories and files from being processed by Jekyll
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - README.md
+  - docs/
   - LICENSE
+  - README.md
+  - website_structure.json
 
-# Collections
-collections:
-  pages:
-    output: true
-    permalink: /:path/
-
-# Defaults
-defaults:
+# The defaults section allows you to set default values for certain variables
+  # The scope key defines the default values for specific types of files
   - scope:
-      path: ""
-    values:
-      layout: "default"
+      path: "" # Applies to all files in your site
+      type: "html" # Targets only HTML files
+    values: # Default values for the specified scope
+      layout: default # The name of the layout you want to apply
