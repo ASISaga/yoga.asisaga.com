@@ -226,16 +226,15 @@ footer {
 
 /**
  * Utility Classes
+ * 
+ * Note: Some Bootstrap utility classes (e.g., .text-center) are layout/positioning
+ * utilities that don't have semantic meaning in the ontological system. They're 
+ * handled by the theme's Bootstrap compatibility layer.
  */
 .text-center {
-  // Layout utility - no ontological mapping needed
+  // Bootstrap layout utility - theme provides implementation
 }
 
 .text-muted {
-  @include genesis-cognition('gloss');
+  @include genesis-cognition('gloss');  // Metadata/secondary text
 }
-
-/**
- * Smooth Scrolling
- * Behavioral enhancement - theme handles this
- */
