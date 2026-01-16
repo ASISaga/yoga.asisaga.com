@@ -42,7 +42,7 @@
   }
   
   a {
-    @include genesis-synapse('execute');
+    @include genesis-synapse('navigate');  // Link to parts-of-mind page
   }
 }
 
@@ -93,18 +93,22 @@
 }
 
 .card-body {
-  @include genesis-cognition('discourse');
+  @include genesis-entity('secondary');  // Supporting content container
+  
+  p {
+    @include genesis-cognition('discourse');  // Body text
+  }
   
   h4, h5 {
-    @include genesis-cognition('motive');
+    @include genesis-cognition('motive');  // Persuasive subheadings
   }
   
   ul, ol {
-    @include genesis-cognition('protocol');
+    @include genesis-cognition('protocol');  // Structured, technical lists
   }
   
   a {
-    @include genesis-synapse('navigate');
+    @include genesis-synapse('navigate');  // Navigation links
   }
 }
 

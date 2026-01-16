@@ -200,11 +200,10 @@ p {
 ```
 
 **Rationale:**
-- **Color-coded by Entity Type** - Each mind part gets semantic weight distinction
-- **Buddhi as Primary** - Intellect/reasoning is featured faculty
-- **Manas as Secondary** - Sensory/memory is supporting faculty
-- **Ahankara as Imperative** - Ego/identity demands attention (can be problematic)
-- **Chitta as Latent** - Pure consciousness is backgrounded substrate
+- **Buddhi as Primary** - The intellect/reasoning faculty is the discriminating, decision-making aspect. In yogic philosophy, Buddhi is considered the highest faculty of mind, hence primary visual presence.
+- **Manas as Secondary** - The sensory/perceptual layer processes input and memory. While essential, it serves the intellect and therefore receives secondary visual weight as a supporting faculty.
+- **Ahankara as Imperative** - The ego/identity can be problematic in yogic philosophy when it dominates consciousness. Its imperative nature reflects both its strong presence and the urgency of managing it properly.
+- **Chitta as Latent** - Pure consciousness is the substrate from which everything emerges. It's fundamental but backgrounded - always present yet not directly engaged like the active faculties. The latent classification reflects its role as the foundational layer awaiting activation.
 
 ### Navigation & Footer
 
