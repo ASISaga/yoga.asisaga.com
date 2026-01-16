@@ -10,6 +10,16 @@
  * Structure mirrors HTML DOM hierarchy for clarity and maintainability.
  */
 
+/**
+ * Import Genesis Ontology System
+ * 
+ * This imports the complete ontological interface from the remote theme:
+ * - 6 semantic categories (Environment/Entity/Cognition/Synapse/State/Atmosphere)
+ * - 31 total variants across all categories
+ * - Zero raw CSS - all styling via theme's engine layer
+ * 
+ * See: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
+ */
 @import "ontology/index";
 
 /**
@@ -229,11 +239,9 @@ footer {
  * 
  * Note: Some Bootstrap utility classes (e.g., .text-center) are layout/positioning
  * utilities that don't have semantic meaning in the ontological system. They're 
- * handled by the theme's Bootstrap compatibility layer.
+ * handled by the theme's Bootstrap compatibility layer and don't need explicit
+ * SCSS rules here.
  */
-.text-center {
-  // Bootstrap layout utility - theme provides implementation
-}
 
 .text-muted {
   @include genesis-cognition('gloss');  // Metadata/secondary text

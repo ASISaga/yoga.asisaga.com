@@ -374,13 +374,17 @@ As yoga.asisaga.com evolves, we may need:
 
 ### When Theme Updates
 
-Pull latest theme changes regularly:
+This subdomain uses a remote theme via Jekyll's `remote_theme` configuration.
+Theme updates are automatically pulled by GitHub Pages on each deployment.
+
+To test theme updates locally:
 ```bash
-git submodule update --remote theme.asisaga.com
-# Or however this subdomain imports the theme
+bundle update
+bundle exec jekyll serve
 ```
 
-Review GENOME.md for new variants that might better match existing patterns.
+Review GENOME.md in the theme repository for new variants that might better match existing patterns:
+- https://github.com/ASISaga/theme.asisaga.com/blob/main/GENOME.md
 
 ### Quality Checklist
 
