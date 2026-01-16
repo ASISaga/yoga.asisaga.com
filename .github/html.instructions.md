@@ -2,7 +2,79 @@
 
 ## Overview
 
-This project uses HTML files (not Markdown) for all web pages in Jekyll. Each HTML file should include Jekyll front matter and may use Liquid template syntax.
+This project uses HTML files (not Markdown) for all web pages in Jekyll. Each HTML file should include Jekyll front matter and may use Liquid template syntax. HTML structure must use semantic elements with meaningful class names to enable ontological SCSS mapping.
+
+## Core Principles for Ontological System
+
+### 1. Semantic HTML First
+
+HTML must use **meaningful semantic elements and class names** that describe WHAT the content IS, not HOW it looks:
+
+✅ **Good:**
+```html
+<article class="research-paper">
+  <header class="paper-header">
+    <h1 class="paper-title">Title</h1>
+  </header>
+</article>
+```
+
+❌ **Bad:**
+```html
+<div class="blue-box rounded">
+  <div class="big-text bold">Title</div>
+</div>
+```
+
+### 2. One Semantic Class Per Element
+
+Each element should have ONE primary semantic class that the SCSS can map to ontological roles:
+
+✅ **Good:**
+```html
+<section class="mind-part-card">
+  <h2 class="card-title">Buddhi</h2>
+  <p class="card-description">The logical processor</p>
+</section>
+```
+
+❌ **Bad:**
+```html
+<section class="card blue-bg rounded shadow hover-lift">
+  <!-- Too many visual classes -->
+</section>
+```
+
+### 3. Use Bootstrap for Layout Only
+
+Bootstrap classes are acceptable for layout structure, but semantic content needs meaningful classes:
+
+✅ **Good:**
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <article class="blog-post">
+        <h1 class="post-title">Title</h1>
+      </article>
+    </div>
+  </div>
+</div>
+```
+
+### 4. No Inline Styles
+
+Never use inline `style` attributes - all styling via SCSS ontological mappings:
+
+✅ **Good:**
+```html
+<div class="alert-banner">Warning!</div>
+```
+
+❌ **Bad:**
+```html
+<div style="background: red; padding: 20px;">Warning!</div>
+```
 
 ## File Structure
 
@@ -33,21 +105,55 @@ permalink: /custom-url/
 
 ### 1. Semantic HTML5
 
-Use appropriate semantic elements:
+Use appropriate semantic elements that accurately describe content structure:
 
 ```html
 <header>  - Site/page header
-<nav>     - Navigation
-<main>    - Main content
-<article> - Self-contained content
-<section> - Thematic grouping
-<aside>   - Sidebar content
+<nav>     - Navigation menus
+<main>    - Main page content
+<article> - Self-contained composition
+<section> - Thematic grouping of content
+<aside>   - Tangentially related content
 <footer>  - Site/page footer
+<figure>  - Self-contained content with caption
+<time>    - Date/time information
 ```
 
-### 2. Bootstrap Integration
+**Principle:** Choose elements based on WHAT the content is, not how you want it styled.
 
-The remote theme provides Bootstrap. Use Bootstrap classes:
+### 2. Meaningful Class Names
+
+Classes should describe the semantic role of content, enabling SCSS to map to ontological mixins:
+
+**Layout Containers:**
+```html
+<div class="mind-parts-grid">        <!-- distributed environment -->
+<div class="article-content">        <!-- focused environment -->
+<div class="navigation-menu">        <!-- associative environment -->
+```
+
+**Content Blocks:**
+```html
+<article class="research-paper">     <!-- primary entity -->
+<aside class="related-info">         <!-- secondary entity -->
+<div class="urgent-alert">           <!-- imperative entity -->
+```
+
+**Typography:**
+```html
+<h1 class="page-title">              <!-- axiom cognition -->
+<p class="article-body">             <!-- discourse cognition -->
+<code class="code-snippet">          <!-- protocol cognition -->
+<span class="metadata">              <!-- gloss cognition -->
+```
+
+**Interactive Elements:**
+```html
+<a class="read-more-link">           <!-- navigate synapse -->
+<button class="submit-action">      <!-- execute synapse -->
+<button class="search-trigger">     <!-- inquiry synapse -->
+<button class="delete-action">      <!-- destructive synapse -->
+```
 
 ```html
 <!-- Container -->

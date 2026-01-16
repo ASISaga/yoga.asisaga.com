@@ -10,8 +10,9 @@ This project explores the concept of mind parts from yogic philosophy re-imagine
 
 - **Jekyll Site**: Static site generator using Liquid templates
 - **HTML Pages**: All web pages are HTML files (not Markdown), using Jekyll front matter and Liquid syntax
-- **Remote Theme**: Uses `ASISaga/theme.asisaga.com` as the remote theme
+- **Remote Theme**: Uses `ASISaga/theme.asisaga.com` as the remote theme with Genesis Ontological SCSS System
 - **Content**: Detailed exploration of Buddhi, Manas, Ahankara, and Chitta in ASI context
+- **Styling**: Genesis Semantic SCSS Engine - ontological mixins, zero raw CSS
 
 ## Custom Agents
 
@@ -45,10 +46,13 @@ When working on this project, GitHub Copilot agents should be aware of:
 - See `js.instructions.md` for detailed guidelines
 
 ### 3. SCSS Development Agent
-- Work within Jekyll's SCSS compilation
-- Extend theme styles rather than override
-- Follow BEM or similar naming conventions
-- See `scss.instructions.md` for detailed guidelines
+- Use ONLY Genesis ontological mixins from `@import "ontology/index";`
+- NO raw CSS properties allowed (no px, colors, padding, etc.)
+- Map HTML semantics to ontological roles (Environment/Entity/Cognition/Synapse/State/Atmosphere)
+- Mirror HTML structure in SCSS nesting
+- See `scss.instructions.md` for complete ontological system guide
+- See `.github/prompts/scss-refactor-agent.prompt.md` for migration workflow
+- See `.github/prompts/subdomain-evolution-agent.prompt.md` for proposing new variants
 
 ### 4. Content Agent
 - Maintain balance between technical accuracy and accessibility
@@ -85,17 +89,29 @@ yoga.asisaga.com/
 ## Important Conventions
 
 - **No Markdown Pages**: Use HTML files with Liquid templates instead
-- **Remote Theme**: Do not override theme files unless necessary
-- **Bootstrap First**: Use Bootstrap utilities before custom CSS
+- **Remote Theme**: Do not override theme files - all styling via ontological mixins
+- **Genesis Ontology**: Use semantic SCSS mixins exclusively, no raw CSS
 - **Progressive Enhancement**: Core content accessible without JS
-- **Semantic HTML**: Use appropriate HTML5 elements
+- **Semantic HTML**: Use appropriate HTML5 elements with meaningful class names
+- **Mirrored Structure**: SCSS nesting must match HTML DOM hierarchy exactly
+- **Ontological Purity**: SCSS expresses WHAT content is, not HOW it looks
 
 ## Resources
 
+### Theme & Ontology System
+
 - **Theme Repository**: https://github.com/ASISaga/theme.asisaga.com
+- **Ontology Integration Guide**: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
+- **Ontology Architecture**: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/Readme.md
+- **GENOME.md**: https://github.com/ASISaga/theme.asisaga.com/blob/main/GENOME.md (Variant history)
+- **Agent Workflows**: https://github.com/ASISaga/theme.asisaga.com/blob/main/.github/AGENT-WORKFLOWS.md
+- **Evolution Philosophy**: https://github.com/ASISaga/theme.asisaga.com/blob/main/evolution.md
+
+### Standard Documentation
+
 - **Jekyll Documentation**: https://jekyllrb.com/docs/
 - **Liquid Reference**: https://shopify.github.io/liquid/
-- **Bootstrap Docs**: https://getbootstrap.com/docs/
+- **Bootstrap Docs**: https://getbootstrap.com/docs/ (compatibility layer in theme)
 
 ## Agent Activation
 
@@ -113,6 +129,34 @@ To activate a specialized agent for this project, reference:
 - **Mobile**: Responsive design (Bootstrap grid)
 - **Browser**: Support modern browsers (last 2 versions)
 
+## Ontological Evolution Mechanism
+
+This subdomain participates in the **Living Genome** system where the ontological design system evolves through intelligent collaboration.
+
+### For Subdomain Developers
+
+**When you encounter a semantic gap:**
+
+1. **Review existing variants** - Check all 31 variants in INTEGRATION-GUIDE.md
+2. **Try combinations** - Mix ontological mixins creatively first
+3. **Propose evolution** - Create Ontological Proposition PR if genuine gap exists
+4. **Theme Agent reviews** - Semantic purity and universal applicability evaluated
+5. **Implementation** - Approved variants documented in GENOME.md with origin story
+
+**Resources:**
+- **Subdomain Evolution Agent**: `.github/prompts/subdomain-evolution-agent.prompt.md`
+- **SCSS Refactor Agent**: `.github/prompts/scss-refactor-agent.prompt.md`
+- **Proposition Template**: https://github.com/ASISaga/theme.asisaga.com/blob/main/.github/PULL_REQUEST_TEMPLATE/ontological_proposition.md
+
+### Philosophy
+
+Every variant has an **origin story**. GENOME.md documents:
+- Which subdomain requested it
+- What semantic gap it filled
+- How the system evolved
+
+This creates **design with memory** - future developers understand not just WHAT exists, but WHY.
+
 ## Future Enhancements
 
 Potential areas for agent development:
@@ -121,3 +165,4 @@ Potential areas for agent development:
 - Comparative analysis tools
 - Educational modules
 - Research paper integrations
+- Ontological propositions for unique semantic patterns in consciousness visualization

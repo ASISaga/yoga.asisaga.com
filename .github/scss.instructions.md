@@ -1,577 +1,524 @@
-# SCSS Development Instructions
+# SCSS Development Instructions - Genesis Ontological System
 
 ## Overview
 
-This project uses SCSS (Sassy CSS) for styling, integrated with Jekyll's build process. The remote theme provides base styles including Bootstrap, which should be extended rather than overridden.
+This subdomain uses the **Genesis Semantic SCSS Engine** from the ASISaga theme repository. All styling follows the ontological approach - mapping HTML semantics to semantic roles rather than visual properties.
 
-## SCSS Philosophy
+## Core Philosophy
 
-### 1. Extend, Don't Override
-- Use theme's existing styles as foundation
-- Add custom styles only when necessary
-- Maintain consistency with theme design
+### Three-Tier Architecture
 
-### 2. Modular Architecture
-- Organize styles into partials
-- Use clear naming conventions
-- Keep specificity low
+**Tier 1: Content (HTML)**
+- Defines WHAT the data is
+- Uses semantic HTML5 elements and meaningful class names
+- No inline styles or style attributes
 
-### 3. Maintainability
-- Write self-documenting code
-- Use variables for reusable values
-- Keep selectors simple
+**Tier 2: Interface (Our SCSS)**
+- Defines the ROLE of content using ontological mixins
+- NO raw CSS properties allowed
+- Maps semantic classes to Genesis mixins
+
+**Tier 3: Engine (Theme)**
+- Defines the LOOK using OKLCH colors, Bento layouts, glassmorphism
+- Controlled entirely by the theme repository
+- We never touch this layer
+
+## Essential Rules
+
+### ✅ DO
+
+1. **Use only ontological mixins** from `@import "ontology/index";`
+2. **Map HTML classes to semantic roles** (what IS this content?)
+3. **Mirror HTML structure** in SCSS nesting
+4. **Comment your intent** (why this mixin?)
+5. **Combine mixins** creatively for rich semantics
+
+### ❌ DON'T
+
+1. **No raw CSS properties** (`margin`, `padding`, `color`, `background`, etc.)
+2. **No pixel/rem values** anywhere in SCSS
+3. **No color values** (`#hex`, `rgb()`, `oklch()`)
+4. **No layout properties** (`display`, `grid`, `flex`)
+5. **No typography values** (`font-size`, `font-weight`, `line-height`)
+
+## The Six Ontological Categories
+
+### 1. `genesis-environment($logic)` - Spatial Organization
+
+Maps HTML layout containers to organizational logic:
+
+- `'distributed'` - Autonomous entities in Bento grid (card grids, galleries)
+- `'focused'` - Singular narrative thread (blog posts, articles)
+- `'associative'` - Network of connections (navigation, related items)
+- `'chronological'` - Time-linear sequence (timelines, feeds)
+- `'manifest'` - High-density dashboard (analytics, metrics)
+
+**Example:**
+```scss
+.mind-parts-grid {
+  @include genesis-environment('distributed');  // Auto-fit card grid
+}
+
+.article-content {
+  @include genesis-environment('focused');      // Reading-optimized
+}
+```
+
+### 2. `genesis-entity($nature)` - Visual Presence
+
+Maps content blocks to their semantic weight:
+
+- `'primary'` - Featured content (main cards, hero sections)
+- `'secondary'` - Supporting context (sidebars, metadata)
+- `'imperative'` - Urgent/critical (alerts, warnings)
+- `'latent'` - Backgrounded/inactive (archived, disabled)
+- `'aggregate'` - Container of multiple entities
+- `'ancestral'` - Historical/archived data
+
+**Example:**
+```scss
+.mind-part-card {
+  @include genesis-entity('primary');           // Featured card
+}
+
+.alert-danger {
+  @include genesis-entity('imperative');        // Urgent alert
+}
+```
+
+### 3. `genesis-cognition($intent)` - Information Type
+
+Maps text elements to their informational role:
+
+- `'axiom'` - Headlines and foundational statements (h1, display text)
+- `'discourse'` - Body text and prose (p, article text)
+- `'protocol'` - Technical/code content (code, pre, technical lists)
+- `'gloss'` - Small annotations (captions, metadata, footnotes)
+- `'motive'` - Persuasive/instructional (subheadings, CTAs)
+- `'quantum'` - Tiny fragments (tags, chips, badges)
+
+**Example:**
+```scss
+h1 {
+  @include genesis-cognition('axiom');          // Large headline
+}
+
+.article-body {
+  @include genesis-cognition('discourse');      // Reading text
+}
+
+.metadata {
+  @include genesis-cognition('gloss');          // Small details
+}
+```
+
+### 4. `genesis-synapse($vector)` - Interaction Type
+
+Maps interactive elements to their action:
+
+- `'navigate'` - Links to different pages (a, nav links)
+- `'execute'` - Primary actions (submit buttons, main CTAs)
+- `'inquiry'` - Secondary actions (search, expand, filter)
+- `'destructive'` - Dangerous actions (delete, reset)
+- `'social'` - Social sharing (share buttons, social links)
+
+**Example:**
+```scss
+.read-more-link {
+  @include genesis-synapse('navigate');         // Page navigation
+}
+
+.submit-button {
+  @include genesis-synapse('execute');          // Primary action
+}
+
+.delete-button {
+  @include genesis-synapse('destructive');      // Dangerous action
+}
+```
+
+### 5. `genesis-state($condition)` - Temporal State
+
+Maps elements to their temporal condition:
+
+- `'stable'` - Normal equilibrium state
+- `'evolving'` - Updating/streaming content
+- `'deprecated'` - No longer current/verified
+- `'locked'` - Restricted access required
+- `'simulated'` - Preview/projection data
+
+**Example:**
+```scss
+.live-data {
+  @include genesis-state('evolving');           // Real-time updates
+}
+
+.archived-content {
+  @include genesis-state('deprecated');         // Old content
+}
+```
+
+### 6. `genesis-atmosphere($vibe)` - Sensory Texture
+
+Maps sections to their emotional tone:
+
+- `'neutral'` - Standard system transparency
+- `'ethereal'` - Light, peaceful, minimal
+- `'void'` - Dark, immersive, focused
+- `'vibrant'` - Energetic, data-rich, colorful
+
+**Example:**
+```scss
+.meditation-section {
+  @include genesis-atmosphere('ethereal');      // Light and peaceful
+}
+
+.dashboard {
+  @include genesis-atmosphere('vibrant');       // Energetic and data-rich
+}
+```
 
 ## File Structure
 
 ```
-_sass/
-├── _variables.scss      # Custom variables
-├── _mixins.scss         # Reusable mixins
-├── _base.scss           # Base styles
-├── _layout.scss         # Layout components
-├── _components.scss     # UI components
-├── _utilities.scss      # Utility classes
-└── _mind-parts.scss     # Project-specific styles
-
 assets/
 └── css/
-    └── main.scss        # Main import file
+    └── main.scss        # ONLY SCSS file - imports ontology and maps classes
+
+_sass/
+└── (removed)            # No local partials - theme provides everything
 ```
 
-## SCSS Guidelines
+## SCSS Template
 
-### 1. Variables
+Every SCSS file should follow this structure:
 
-#### Color Variables
 ```scss
-// Brand colors
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$info-color: #17a2b8;
-$warning-color: #ffc107;
-$danger-color: #dc3545;
+---
+---
 
-// Mind parts colors
-$buddhi-color: #007bff;   // Blue - intellect
-$manas-color: #28a745;    // Green - perception
-$ahankara-color: #ffc107; // Yellow - identity
-$chitta-color: #17a2b8;   // Cyan - consciousness
+/**
+ * [Subdomain Name] - Genesis Ontological SCSS
+ * 
+ * Structure mirrors HTML DOM hierarchy
+ * All styling via ontological mixins - no raw CSS
+ */
 
-// Neutral colors
-$white: #ffffff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-800: #343a40;
-$black: #000000;
+@import "ontology/index";
 
-// Text colors
-$text-primary: $gray-800;
-$text-secondary: #6c757d;
-$text-muted: #6c757d;
-```
-
-#### Typography Variables
-```scss
-$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-$font-size-base: 1rem;
-$font-size-lg: 1.25rem;
-$font-size-sm: 0.875rem;
-
-$line-height-base: 1.5;
-$line-height-lg: 1.75;
-$line-height-sm: 1.25;
-
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-bold: 700;
-```
-
-#### Spacing Variables
-```scss
-$spacer: 1rem;
-$spacers: (
-  0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3
-);
-```
-
-#### Breakpoints
-```scss
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-$breakpoint-xxl: 1400px;
-```
-
-### 2. Mixins
-
-#### Responsive Breakpoints
-```scss
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == 'sm' {
-    @media (min-width: $breakpoint-sm) { @content; }
-  } @else if $breakpoint == 'md' {
-    @media (min-width: $breakpoint-md) { @content; }
-  } @else if $breakpoint == 'lg' {
-    @media (min-width: $breakpoint-lg) { @content; }
-  } @else if $breakpoint == 'xl' {
-    @media (min-width: $breakpoint-xl) { @content; }
-  }
-}
-
-// Usage
-.element {
-  font-size: 14px;
+/**
+ * Section Name - Semantic description
+ * Environment: [which layout logic]
+ * Entity: [which visual weight]
+ * Atmosphere: [which sensory vibe]
+ */
+.semantic-class-name {
+  @include genesis-environment('distributed');
+  @include genesis-entity('primary');
   
-  @include respond-to('md') {
-    font-size: 16px;
-  }
-}
-```
-
-#### Card Style Mixin
-```scss
-@mixin card($bg-color: $white, $border-radius: 0.25rem) {
-  background-color: $bg-color;
-  border-radius: $border-radius;
-  box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
-  padding: 1.25rem;
-  
-  &:hover {
-    box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
-  }
-}
-```
-
-#### Flexbox Utilities
-```scss
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-```
-
-#### Transition Mixin
-```scss
-@mixin transition($properties: all, $duration: 0.3s, $timing: ease) {
-  transition: $properties $duration $timing;
-}
-```
-
-### 3. Naming Conventions
-
-#### BEM (Block Element Modifier)
-```scss
-// Block
-.mind-part {
-  // Element
-  &__title {
-    font-size: 1.5rem;
-    font-weight: bold;
+  .nested-element {
+    @include genesis-cognition('axiom');
   }
   
-  &__description {
-    color: $text-secondary;
-  }
-  
-  // Modifier
-  &--buddhi {
-    border-color: $buddhi-color;
-  }
-  
-  &--manas {
-    border-color: $manas-color;
+  .action-link {
+    @include genesis-synapse('navigate');
   }
 }
 ```
 
-#### Component Classes
+## Migration Workflow
+
+When converting legacy CSS to ontological system:
+
+### Step 1: Analyze HTML Structure
+
+```html
+<section class="research-paper">
+  <header class="paper-header">
+    <h1 class="paper-title">Title</h1>
+    <time class="paper-date">Date</time>
+  </header>
+  <div class="paper-content">
+    <p>Content...</p>
+  </div>
+</section>
+```
+
+### Step 2: Classify Each Element
+
+- `.research-paper` → Container → `genesis-environment('focused')`
+- `.paper-header` → Content block → `genesis-entity('primary')`
+- `.paper-title` → Headline → `genesis-cognition('axiom')`
+- `.paper-date` → Metadata → `genesis-cognition('gloss')`
+- `.paper-content` → Body text → `genesis-cognition('discourse')`
+
+### Step 3: Create Mirrored SCSS
+
+```scss
+.research-paper {
+  @include genesis-environment('focused');
+  @include genesis-atmosphere('ethereal');
+  
+  .paper-header {
+    @include genesis-entity('primary');
+    
+    .paper-title {
+      @include genesis-cognition('axiom');
+    }
+    
+    .paper-date {
+      @include genesis-cognition('gloss');
+    }
+  }
+  
+  .paper-content {
+    @include genesis-cognition('discourse');
+  }
+}
+```
+
+### Step 4: Verify
+
+- [ ] Only `@import "ontology/index";` at top
+- [ ] Zero raw CSS properties
+- [ ] No pixel/rem/color values
+- [ ] SCSS structure mirrors HTML
+- [ ] Comments explain intent
+- [ ] Visual appearance maintained
+
+## Common Patterns
+
+### Homepage Hero Section
+
 ```scss
 .hero-section {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
-  color: $white;
-  
-  &__title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  &__subtitle {
-    font-size: 1.25rem;
-    opacity: 0.9;
-  }
-}
-```
-
-### 4. Layout Styles
-
-#### Container Customization
-```scss
-.container-custom {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  
-  @include respond-to('lg') {
-    max-width: 1320px;
-  }
-}
-```
-
-#### Grid Extensions
-```scss
-.row-custom {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  
-  @include respond-to('md') {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-```
-
-### 5. Component Styles
-
-#### Cards
-```scss
-.card-mind-part {
-  @include card();
-  border-left: 4px solid transparent;
-  @include transition(transform);
-  
-  &:hover {
-    transform: translateY(-4px);
-  }
-  
-  &.buddhi {
-    border-left-color: $buddhi-color;
-  }
-  
-  &.manas {
-    border-left-color: $manas-color;
-  }
-  
-  &.ahankara {
-    border-left-color: $ahankara-color;
-  }
-  
-  &.chitta {
-    border-left-color: $chitta-color;
-  }
-}
-```
-
-#### Buttons
-```scss
-.btn-mind-part {
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  text-decoration: none;
-  @include transition();
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba($black, 0.2);
-  }
-}
-```
-
-#### Hero Section
-```scss
-.hero-section {
-  background: linear-gradient(
-    135deg,
-    rgba($primary-color, 0.9),
-    rgba($info-color, 0.9)
-  );
-  color: $white;
-  padding: 5rem 0;
-  text-align: center;
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('ethereal');
   
   h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    
-    @include respond-to('md') {
-      font-size: 4rem;
-    }
+    @include genesis-cognition('axiom');
   }
   
   .lead {
-    font-size: 1.25rem;
-    opacity: 0.95;
+    @include genesis-cognition('discourse');
+  }
+  
+  .cta-button {
+    @include genesis-synapse('execute');
+  }
+}
+```
+
+### Card Grid
+
+```scss
+.card-grid {
+  @include genesis-environment('distributed');
+  
+  .card {
+    @include genesis-entity('primary');
     
-    @include respond-to('md') {
-      font-size: 1.5rem;
+    .card-title {
+      @include genesis-cognition('axiom');
+    }
+    
+    .card-text {
+      @include genesis-cognition('discourse');
+    }
+    
+    .card-link {
+      @include genesis-synapse('navigate');
     }
   }
 }
 ```
 
-### 6. Utility Classes
+### Article Page
 
 ```scss
-// Spacing utilities (if not provided by Bootstrap)
-.mt-6 { margin-top: 4rem; }
-.mb-6 { margin-bottom: 4rem; }
-.py-6 { padding-top: 4rem; padding-bottom: 4rem; }
-
-// Text utilities
-.text-gradient {
-  background: linear-gradient(135deg, $primary-color, $info-color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-shadow {
-  text-shadow: 0 2px 4px rgba($black, 0.1);
-}
-
-// Border utilities
-.border-thick {
-  border-width: 3px !important;
-}
-
-.border-left-thick {
-  border-left-width: 4px !important;
-}
-
-// Shadow utilities
-.shadow-hover {
-  @include transition(box-shadow);
+.article-page {
+  @include genesis-environment('focused');
   
-  &:hover {
-    box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
-  }
-}
-```
-
-### 7. Animations
-
-```scss
-// Fade in
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-// Pulse
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-// Slide in
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.5s ease-out;
-}
-```
-
-### 8. Typography
-
-```scss
-// Headings
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $font-weight-bold;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
-// Lead text
-.lead {
-  font-size: 1.25rem;
-  font-weight: $font-weight-light;
-  line-height: $line-height-lg;
-}
-
-// Small text
-.small-text {
-  font-size: $font-size-sm;
-}
-
-// Code
-code {
-  font-family: $font-family-monospace;
-  font-size: 0.875em;
-  background-color: $gray-100;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-}
-
-pre {
-  font-family: $font-family-monospace;
-  background-color: $gray-100;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  overflow-x: auto;
-  
-  code {
-    background-color: transparent;
-    padding: 0;
-  }
-}
-```
-
-## Project-Specific Styles
-
-### Mind Parts Theme
-```scss
-// Mind parts color scheme
-.mind-part-buddhi {
-  --mind-color: #{$buddhi-color};
-}
-
-.mind-part-manas {
-  --mind-color: #{$manas-color};
-}
-
-.mind-part-ahankara {
-  --mind-color: #{$ahankara-color};
-}
-
-.mind-part-chitta {
-  --mind-color: #{$chitta-color};
-}
-
-// Mind part cards
-.mind-part-card {
-  border-left: 4px solid var(--mind-color, $primary-color);
-  
-  .card-header {
-    background-color: var(--mind-color);
-    color: $white;
-  }
-}
-
-// Mind diagram (for future interactive visualization)
-.mind-diagram {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  
-  @include respond-to('lg') {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  &__part {
-    text-align: center;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    @include transition();
+  .article-header {
+    @include genesis-entity('primary');
     
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba($black, 0.1);
+    h1 {
+      @include genesis-cognition('axiom');
+    }
+    
+    .metadata {
+      @include genesis-cognition('gloss');
+    }
+  }
+  
+  .article-content {
+    @include genesis-cognition('discourse');
+    
+    h2 {
+      @include genesis-cognition('motive');
+    }
+    
+    code {
+      @include genesis-cognition('protocol');
     }
   }
 }
 ```
+
+### Alert/Notification
+
+```scss
+.alert {
+  @include genesis-entity('secondary');
+  
+  &.alert-warning {
+    @include genesis-entity('imperative');
+  }
+  
+  a {
+    @include genesis-synapse('navigate');
+  }
+}
+```
+
+## Combining Mixins
+
+You can apply multiple mixins to the same element for rich semantic meaning:
+
+```scss
+.live-alert {
+  @include genesis-entity('imperative');      // Urgent visual
+  @include genesis-state('evolving');         // Currently updating
+  @include genesis-atmosphere('vibrant');     // High-energy vibe
+  
+  .alert-message {
+    @include genesis-cognition('discourse');  // Body text
+  }
+  
+  .dismiss-button {
+    @include genesis-synapse('destructive');  // Dangerous action
+  }
+}
+```
+
+## Evolution Process
+
+### When You Need Something New
+
+**Question 1:** Can I achieve this by combining existing mixins?
+- YES → Use combination
+- NO → Continue to Question 2
+
+**Question 2:** Is this about WHAT the content is (semantic) or HOW it looks (visual)?
+- HOW → Use existing mixins (visual is theme's concern)
+- WHAT → Continue to Question 3
+
+**Question 3:** Is this pattern universally useful across multiple pages/subdomains?
+- NO → Use existing mixins creatively
+- YES → Create Ontological Proposition
+
+### Creating an Ontological Proposition
+
+If you identify a genuine semantic gap:
+
+1. Review existing 31 variants in theme's INTEGRATION-GUIDE.md
+2. Try all possible combinations of existing mixins
+3. If truly novel, create proposition using template in theme repo
+4. Submit PR to `ASISaga/theme.asisaga.com` with label `ontological-proposition`
+5. Wait for Theme Genome Agent review
+6. Once approved, pull theme updates and use new variant
+
+**See:** `.github/prompts/subdomain-evolution-agent.prompt.md` for detailed workflow
+
+## Troubleshooting
+
+### "My styles aren't applying"
+
+✅ **Check:**
+1. Did you import `@import "ontology/index";`?
+2. Do your class names match HTML exactly?
+3. Is the theme repository up to date?
+4. Are you using correct mixin syntax?
+
+### "I need exact spacing/colors"
+
+❌ **Don't:** Add raw CSS properties
+
+✅ **Do:** 
+1. Use existing entity/environment variants
+2. Try different atmosphere variants
+3. Consider if this is truly a semantic gap
+4. Propose new variant if universally needed
+
+### "The layout doesn't match my design"
+
+❌ **Don't:** Override with raw CSS
+
+✅ **Do:**
+1. Choose correct environment variant
+2. Try combining environment + atmosphere
+3. Verify HTML structure is semantic
+4. Consider if design should adapt to system
 
 ## Best Practices
 
-1. **Use Variables**: Define colors, fonts, and spacing as variables
-2. **Nest Wisely**: Don't nest more than 3-4 levels deep
-3. **Mixins for Reusability**: Create mixins for repeated patterns
-4. **Mobile First**: Write base styles for mobile, enhance for desktop
-5. **Avoid !important**: Use it only as a last resort
-6. **Comment Complex Code**: Explain why, not what
-7. **Consistent Naming**: Use BEM or similar methodology
-8. **Performance**: Minimize selector complexity
-9. **Accessibility**: Ensure sufficient color contrast
-10. **Browser Compatibility**: Test across browsers
-
-## Main SCSS File
-
-```scss
-// assets/css/main.scss
----
----
-
-// Import theme styles (if available)
-@import "theme";
-
-// Custom variables (override theme if needed)
-@import "variables";
-
-// Mixins
-@import "mixins";
-
-// Base styles
-@import "base";
-
-// Layout
-@import "layout";
-
-// Components
-@import "components";
-
-// Project-specific
-@import "mind-parts";
-
-// Utilities
-@import "utilities";
-```
+1. **Semantic First** - Think "what IS this?" not "how should this look?"
+2. **Comment Intent** - Explain why you chose each mixin
+3. **Mirror Structure** - SCSS nesting matches HTML exactly
+4. **Combine Creatively** - Multiple mixins create rich meaning
+5. **Trust the System** - Theme controls all visual aspects
+6. **Propose Thoughtfully** - Only suggest new variants for genuine gaps
+7. **Stay Updated** - Pull theme updates regularly
+8. **Document Usage** - Help future developers understand choices
 
 ## Resources
 
-- [Sass Documentation](https://sass-lang.com/documentation)
-- [Sass Guidelines](https://sass-guidelin.es/)
-- [BEM Methodology](http://getbem.com/)
-- [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [CSS-Tricks Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+### Theme Documentation
+
+- **[Ontology Integration Guide](https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md)** - Complete API reference
+- **[Ontology Architecture](https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/Readme.md)** - System overview
+- **[GENOME.md](https://github.com/ASISaga/theme.asisaga.com/blob/main/GENOME.md)** - Variant history
+- **[Agent Workflows](https://github.com/ASISaga/theme.asisaga.com/blob/main/.github/AGENT-WORKFLOWS.md)** - Complete processes
+
+### Agent Prompts
+
+- **Subdomain Evolution Agent** - `.github/prompts/subdomain-evolution-agent.prompt.md`
+- **SCSS Refactor Agent** - `.github/prompts/scss-refactor-agent.prompt.md`
+
+### Visual Examples
+
+- **[Ontology Demo](https://github.com/ASISaga/theme.asisaga.com/blob/main/docs/ontology-demo.html)** - Live examples
+- **[Semantic Quick Reference](https://github.com/ASISaga/theme.asisaga.com/blob/main/docs/SEMANTIC-QUICK-REFERENCE.md)** - Fast lookup
+
+## Quality Checklist
+
+Before committing SCSS:
+
+- [ ] Only `@import "ontology/index";` import
+- [ ] Zero raw CSS properties
+- [ ] No px/rem/em values
+- [ ] No color values
+- [ ] SCSS mirrors HTML structure
+- [ ] Comments explain semantic choices
+- [ ] All classes mapped to mixins
+- [ ] Visual appearance verified
+- [ ] Accessibility maintained (WCAG AA)
+
+## Success Metrics
+
+You're succeeding if:
+
+1. ✅ SCSS reads like semantic documentation
+2. ✅ No raw CSS anywhere
+3. ✅ HTML structure is clean and semantic
+4. ✅ Visual appearance matches intent
+5. ✅ Code is maintainable and understandable
+6. ✅ System-wide theme updates work seamlessly
+
+---
+
+**Status**: ✅ Ontological System Active  
+**Theme**: ASISaga/theme.asisaga.com  
+**System**: Genesis Semantic SCSS Engine  
+**Paradigm**: Semantic purity, visual delegation, evolutionary growth

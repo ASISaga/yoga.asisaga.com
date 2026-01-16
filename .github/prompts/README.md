@@ -2,17 +2,44 @@
 
 This directory contains reusable prompts for common tasks in the yoga.asisaga.com project.
 
+## IMPORTANT: Ontological System
+
+This subdomain uses the **Genesis Semantic SCSS Engine**. All styling must use ontological mixins - NO raw CSS properties allowed.
+
+**Before using any SCSS prompts:**
+1. Read `.github/scss.instructions.md` for complete ontological guide
+2. Review `ONTOLOGICAL-MAPPINGS.md` for semantic mapping examples
+3. Understand the six ontological categories (Environment/Entity/Cognition/Synapse/State/Atmosphere)
+
+## Agent Prompts
+
+### Subdomain Evolution Agent
+Use `.github/prompts/subdomain-evolution-agent.prompt.md` when:
+- You need to propose a new ontological variant
+- You've identified a semantic gap in the Genesis system
+- You want to contribute to the Living Genome evolution
+
+### SCSS Refactor Agent  
+Use `.github/prompts/scss-refactor-agent.prompt.md` when:
+- Converting legacy CSS to ontological system
+- Migrating old raw CSS properties to semantic mixins
+- Ensuring zero raw CSS compliance
+
 ## HTML Development Prompts
 
-### Create New Page
+### Create New Page with Semantic HTML
 ```
-Create a new HTML page for [topic] following these guidelines:
+Create a new HTML page for [topic] following ontological system requirements:
 - Use Jekyll front matter with layout: default
+- Use semantic HTML5 elements appropriately
+- Give elements meaningful class names (what IS this content?)
 - Include breadcrumb navigation
-- Use Bootstrap grid (col-lg-10 offset-lg-1)
-- Add semantic HTML5 sections
-- Include back navigation at the bottom
+- Use Bootstrap grid for layout structure only
+- Add one semantic class per content element
 - Ensure WCAG 2.1 AA accessibility
+- No inline styles
+
+Then create corresponding SCSS mappings using Genesis ontology.
 ```
 
 ### Add Content Section
@@ -49,24 +76,38 @@ Optimize [script.js] for performance:
 
 ## SCSS Development Prompts
 
-### Create Component Styles
+### Map HTML to Ontological Roles
 ```
-Create SCSS styles for [component] following these guidelines:
-- Use BEM naming convention
-- Define color variables for mind parts if relevant
-- Include responsive breakpoints
-- Add hover/focus states for interactivity
-- Ensure accessibility (contrast ratios)
+Analyze the HTML structure in [page.html] and create SCSS mappings using Genesis ontology:
+
+1. Review the HTML semantic structure
+2. For each unique class, determine:
+   - Layout container? → genesis-environment
+   - Content block? → genesis-entity
+   - Text element? → genesis-cognition
+   - Interactive element? → genesis-synapse
+   - Has temporal state? → genesis-state
+   - Needs atmosphere? → genesis-atmosphere
+3. Create mirrored SCSS structure
+4. Add comments explaining semantic intent
+5. Verify zero raw CSS properties
+
+Follow examples in ONTOLOGICAL-MAPPINGS.md
 ```
 
-### Extend Theme Styles
+### Refactor Legacy CSS to Ontology
 ```
-Extend the remote theme styles to add [feature]:
-- Use existing variables where possible
-- Create new partials if needed
-- Maintain consistency with theme design
-- Test across breakpoints
-- Document any custom variables
+Refactor the CSS in [file.scss] to use Genesis ontological system:
+
+1. Import ontology: @import "ontology/index";
+2. Analyze each CSS rule and determine semantic intent
+3. Replace raw properties with appropriate ontological mixins
+4. Remove all pixel values, colors, and layout properties
+5. Mirror HTML structure in SCSS nesting
+6. Document semantic choices in comments
+7. Verify visual appearance matches original
+
+See .github/prompts/scss-refactor-agent.prompt.md for detailed workflow
 ```
 
 ## Content Development Prompts
