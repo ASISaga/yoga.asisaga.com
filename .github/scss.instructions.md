@@ -440,6 +440,7 @@ If you identify a genuine semantic gap:
 2. Do your class names match HTML exactly?
 3. Is the theme repository up to date?
 4. Are you using correct mixin syntax?
+5. Run `npm run lint:scss` to check for syntax errors
 
 ### "I need exact spacing/colors"
 
@@ -474,6 +475,11 @@ If you identify a genuine semantic gap:
 
 ## Resources
 
+### Linting & Validation
+
+- **Stylelint**: Run `npm run lint:scss` to validate SCSS files
+- **Stylelint Documentation**: https://stylelint.io/
+
 ### Theme Documentation
 
 - **[Ontology Integration Guide](https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md)** - Complete API reference
@@ -504,6 +510,7 @@ Before committing SCSS:
 - [ ] All classes mapped to mixins
 - [ ] Visual appearance verified
 - [ ] Accessibility maintained (WCAG AA)
+- [ ] **Run `npm run lint:scss` and fix any errors**
 
 ## Success Metrics
 
