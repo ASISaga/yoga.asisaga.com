@@ -1,23 +1,14 @@
 /**
- * Yoga ASISaga - Genesis Ontological SCSS System
+ * Yoga ASISaga - Site-Specific Ontological Mappings
  * 
- * This subdomain uses the Genesis Semantic SCSS Engine from theme.asisaga.com
- * All visual styling is controlled by ontological mixins - no raw CSS properties.
+ * This file contains semantic SCSS mappings for the yoga.asisaga.com site.
+ * The Genesis Ontological Theme is imported in assets/css/main.scss.
  * 
+ * All visual styling uses ontological mixins - no raw CSS properties.
  * Structure mirrors HTML DOM hierarchy for clarity and maintainability.
- */
-
-/**
- * Import Genesis Ontology System
- * 
- * This imports the complete ontological interface from the remote theme:
- * - 6 semantic categories (Environment/Entity/Cognition/Synapse/State/Atmosphere)
- * - 31 total variants across all categories
- * - Zero raw CSS - all styling via theme's engine layer
  * 
  * See: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
  */
-@import "ontology/index";
 
 /**
  * Hero Section - Landing page introduction
