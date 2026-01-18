@@ -9,11 +9,11 @@ sass:
     - assets/css
 
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-remote-theme
 
-remote_theme: ASISaga/theme.asisaga.com
+remote_theme: ASISaga/theme.asisaga.com@main
 
 # Exclude specific directories and files from being processed by Jekyll
 exclude:
