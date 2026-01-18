@@ -1,2 +1,259 @@
 ---
 ---
+
+/**
+ * Yoga ASISaga - Genesis Ontological SCSS System
+ * 
+ * This subdomain uses the Genesis Semantic SCSS Engine from theme.asisaga.com
+ * All visual styling is controlled by ontological mixins - no raw CSS properties.
+ * 
+ * Structure mirrors HTML DOM hierarchy for clarity and maintainability.
+ */
+
+/**
+ * Import Genesis Ontology System
+ * 
+ * This imports the complete ontological interface from the remote theme:
+ * - 6 semantic categories (Environment/Entity/Cognition/Synapse/State/Atmosphere)
+ * - 31 total variants across all categories
+ * - Zero raw CSS - all styling via theme's engine layer
+ * 
+ * See: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
+ */
+@import "ontology/index";
+
+/**
+ * Hero Section - Landing page introduction
+ * Environment: Focused (narrative reading experience)
+ * Entity: Primary (elevated, featured content)
+ * Atmosphere: Ethereal (light, peaceful introduction)
+ */
+.hero-section {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('ethereal');
+  
+  h1 {
+    @include genesis-cognition('axiom');
+  }
+  
+  .lead {
+    @include genesis-cognition('discourse');
+  }
+  
+  a {
+    @include genesis-synapse('navigate');  // Link to parts-of-mind page
+  }
+}
+
+/**
+ * Content Containers
+ * Environment: Distributed (card grid layout)
+ */
+.container {
+  .row {
+    @include genesis-environment('distributed');
+  }
+}
+
+/**
+ * Mind Part Cards - Homepage grid
+ * Entity: Primary (featured content blocks)
+ */
+.card {
+  @include genesis-entity('primary');
+  
+  .card-title {
+    @include genesis-cognition('axiom');
+  }
+  
+  .card-subtitle {
+    @include genesis-cognition('gloss');
+  }
+  
+  .card-text {
+    @include genesis-cognition('discourse');
+  }
+  
+  a {
+    @include genesis-synapse('navigate');
+  }
+}
+
+/**
+ * Mind Part Detail Cards - Parts of mind page
+ * Entity: Primary with color-coded headers
+ */
+.card-header {
+  @include genesis-entity('primary');
+  
+  h2, h3 {
+    @include genesis-cognition('axiom');
+  }
+}
+
+.card-body {
+  @include genesis-entity('secondary');  // Card body is supporting content (vs primary card header)
+  
+  p {
+    @include genesis-cognition('discourse');  // Body text
+  }
+  
+  h4, h5 {
+    @include genesis-cognition('motive');  // Persuasive subheadings
+  }
+  
+  ul, ol {
+    @include genesis-cognition('protocol');  // Structured, technical lists
+  }
+  
+  a {
+    @include genesis-synapse('navigate');  // Navigation links
+  }
+}
+
+/**
+ * Border Variants for Mind Parts
+ * Uses entity variants for semantic color coding
+ */
+.border-primary {
+  @include genesis-entity('primary');
+}
+
+.border-success {
+  @include genesis-entity('secondary');
+}
+
+.border-warning {
+  @include genesis-entity('imperative');
+}
+
+.border-info {
+  @include genesis-entity('latent');
+}
+
+/**
+ * Page Structure Elements
+ * Environment: Focused (reading-optimized)
+ * 
+ * Note: Using Bootstrap grid classes as selectors for backward compatibility.
+ * Future: Consider adding semantic wrapper like .article-container for cleaner separation.
+ */
+.col-lg-10.offset-lg-1 {
+  @include genesis-environment('focused');
+}
+
+/**
+ * Typography Hierarchy
+ */
+h1, .display-3, .display-4 {
+  @include genesis-cognition('axiom');
+}
+
+h2 {
+  @include genesis-cognition('motive');
+}
+
+h3, h4 {
+  @include genesis-cognition('protocol');
+}
+
+h5, h6 {
+  @include genesis-cognition('gloss');
+}
+
+p {
+  @include genesis-cognition('discourse');
+}
+
+.lead {
+  @include genesis-cognition('discourse');
+}
+
+/**
+ * Navigation Elements
+ */
+.breadcrumb {
+  @include genesis-environment('associative');
+  
+  a {
+    @include genesis-synapse('navigate');
+  }
+}
+
+.navbar-brand {
+  @include genesis-cognition('axiom');
+}
+
+.nav-link {
+  @include genesis-synapse('navigate');
+}
+
+/**
+ * Alert Boxes - Information callouts
+ * Entity: Secondary (supporting context)
+ */
+.alert {
+  @include genesis-entity('secondary');
+  
+  &.alert-info {
+    @include genesis-entity('latent');
+  }
+  
+  &.alert-warning {
+    @include genesis-entity('imperative');
+  }
+  
+  a {
+    @include genesis-synapse('navigate');
+  }
+}
+
+/**
+ * Blockquotes
+ * Cognition: Discourse (quoted text)
+ */
+blockquote {
+  @include genesis-cognition('discourse');
+}
+
+/**
+ * Footer
+ * Environment: Associative (connected links)
+ */
+footer {
+  @include genesis-environment('associative');
+  
+  a {
+    @include genesis-synapse('navigate');
+  }
+}
+
+/**
+ * Buttons and Actions
+ */
+.btn {
+  @include genesis-synapse('execute');
+  
+  &.btn-outline-primary,
+  &.btn-outline-secondary {
+    @include genesis-synapse('inquiry');
+  }
+}
+
+/**
+ * Utility Classes
+ * 
+ * Bootstrap utility classes (e.g., .text-center, .text-start, spacing utilities) 
+ * are layout/positioning helpers without semantic ontological meaning. The theme's
+ * Bootstrap compatibility layer provides their implementations automatically.
+ * 
+ * Only utilities with semantic meaning (like .text-muted) need ontological mapping.
+ * 
+ * See theme compatibility layer:
+ * https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/components/_bootstrap-compat.scss
+ */
+
+.text-muted {
+  @include genesis-cognition('gloss');  // Metadata/secondary text
+}
