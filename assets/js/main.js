@@ -1,5 +1,28 @@
 'use strict';
 
+// Bootstrap navbar toggle functionality (vanilla JS replacement)
+document.addEventListener('DOMContentLoaded', function() {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  
+  if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener('click', function() {
+      const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+      navbarToggler.setAttribute('aria-expanded', !isExpanded);
+      navbarCollapse.classList.toggle('show');
+    });
+    
+    // Close navbar when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInside = navbarToggler.contains(event.target) || navbarCollapse.contains(event.target);
+      if (!isClickInside && navbarCollapse.classList.contains('show')) {
+        navbarToggler.setAttribute('aria-expanded', 'false');
+        navbarCollapse.classList.remove('show');
+      }
+    });
+  }
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
