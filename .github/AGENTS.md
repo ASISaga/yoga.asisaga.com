@@ -50,6 +50,7 @@ When working on this project, GitHub Copilot agents should be aware of:
 - NO raw CSS properties allowed (no px, colors, padding, etc.)
 - Map HTML semantics to ontological roles (Environment/Entity/Cognition/Synapse/State/Atmosphere)
 - Mirror HTML structure in SCSS nesting
+- Run `npm run lint:scss` to validate SCSS files
 - See `scss.instructions.md` for complete ontological system guide
 - See `.github/prompts/scss-refactor-agent.prompt.md` for migration workflow
 - See `.github/prompts/subdomain-evolution-agent.prompt.md` for proposing new variants
@@ -90,7 +91,9 @@ yoga.asisaga.com/
 
 - **No Markdown Pages**: Use HTML files with Liquid templates instead
 - **Remote Theme**: Do not override theme files - all styling via ontological mixins
+- **Bootstrap Compatibility**: The ontological theme provides Bootstrap compatibility layer - no Bootstrap CDN needed
 - **Genesis Ontology**: Use semantic SCSS mixins exclusively, no raw CSS
+- **SCSS Validation**: Use `npm run lint:scss` to validate SCSS files before committing
 - **Progressive Enhancement**: Core content accessible without JS
 - **Semantic HTML**: Use appropriate HTML5 elements with meaningful class names
 - **Mirrored Structure**: SCSS nesting must match HTML DOM hierarchy exactly
@@ -106,12 +109,13 @@ yoga.asisaga.com/
 - **GENOME.md**: https://github.com/ASISaga/theme.asisaga.com/blob/main/GENOME.md (Variant history)
 - **Agent Workflows**: https://github.com/ASISaga/theme.asisaga.com/blob/main/.github/AGENT-WORKFLOWS.md
 - **Evolution Philosophy**: https://github.com/ASISaga/theme.asisaga.com/blob/main/evolution.md
+- **Bootstrap Compatibility Layer**: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/components/_bootstrap-compat.scss
 
 ### Standard Documentation
 
 - **Jekyll Documentation**: https://jekyllrb.com/docs/
 - **Liquid Reference**: https://shopify.github.io/liquid/
-- **Bootstrap Docs**: https://getbootstrap.com/docs/ (compatibility layer in theme)
+- **Stylelint**: https://stylelint.io/
 
 ## Agent Activation
 

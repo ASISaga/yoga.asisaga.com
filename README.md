@@ -22,10 +22,12 @@ The website consists of three main HTML pages:
 ## Technical Stack
 
 - **Jekyll 4.3+** - Static site generator
-- **Bootstrap 5.3** - CSS framework (via CDN)
+- **Genesis Ontological Theme** - Remote theme from ASISaga/theme.asisaga.com
+- **Bootstrap Grid** - Layout system (provided by theme's compatibility layer)
 - **Liquid Templates** - Template language
-- **SCSS** - Styling preprocessor
-- **Remote Theme** - Uses `ASISaga/theme.asisaga.com`
+- **SCSS** - Styling preprocessor with ontological mixins
+- **Stylelint** - SCSS validation and linting
+- **HTML5** - Semantic markup
 
 ## Getting Started
 
@@ -33,12 +35,16 @@ The website consists of three main HTML pages:
 
 - Ruby 3.2+
 - Bundler
+- Node.js 18+ (for SCSS linting)
 
 ### Installation
 
 ```bash
-# Install dependencies
+# Install Ruby dependencies
 bundle install
+
+# Install Node dependencies (for linting)
+npm install
 
 # Build the site
 bundle exec jekyll build
@@ -47,6 +53,13 @@ bundle exec jekyll build
 bundle exec jekyll serve
 
 # The site will be available at http://localhost:4000
+```
+
+### Linting
+
+```bash
+# Lint SCSS files
+npm run lint:scss
 ```
 
 ## Development
@@ -89,9 +102,10 @@ This project includes comprehensive Copilot customization files in the `.github`
 ### Coding Standards
 
 - **HTML**: Semantic HTML5, WCAG 2.1 AA accessibility
-- **CSS**: BEM naming, mobile-first responsive design
+- **SCSS**: Ontological mixins only, no raw CSS properties
 - **JavaScript**: Progressive enhancement, vanilla JS preferred
 - **All pages**: HTML files with Jekyll front matter (not Markdown)
+- **Linting**: Run `npm run lint:scss` before committing SCSS changes
 
 ## Content
 
@@ -148,6 +162,8 @@ This project is part of the [ASISaga](https://github.com/ASISaga) initiative exp
 ## Resources
 
 - [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [Bootstrap Documentation](https://getbootstrap.com/docs/)
+- [Genesis Ontological Theme](https://github.com/ASISaga/theme.asisaga.com)
+- [Ontology Integration Guide](https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md)
 - [Liquid Template Language](https://shopify.github.io/liquid/)
+- [Stylelint](https://stylelint.io/)
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)

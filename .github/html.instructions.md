@@ -45,9 +45,9 @@ Each element should have ONE primary semantic class that the SCSS can map to ont
 </section>
 ```
 
-### 3. Use Bootstrap for Layout Only
+### 3. Use Bootstrap Classes for Layout Only
 
-Bootstrap classes are acceptable for layout structure, but semantic content needs meaningful classes:
+Bootstrap classes are acceptable for layout structure (provided by the ontological theme's compatibility layer), but semantic content needs meaningful classes:
 
 ✅ **Good:**
 ```html
@@ -450,6 +450,6 @@ title: Page Title
 ## Resources
 
 - [HTML5 Specification](https://html.spec.whatwg.org/)
-- [Bootstrap Documentation](https://getbootstrap.com/docs/)
+- [Bootstrap Grid System](https://getbootstrap.com/docs/5.3/layout/grid/) (provided by theme)
 - [Liquid Documentation](https://shopify.github.io/liquid/)
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
