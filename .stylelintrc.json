@@ -20,12 +20,6 @@
     "max-empty-lines": 2,
     "no-missing-end-of-source-newline": true,
     "indentation": 2,
-    "string-quotes": "single",
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["tailwind", "apply", "layer"]
-      }
-    ]
+    "string-quotes": "single"
   }
 }

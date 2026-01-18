@@ -23,7 +23,7 @@ for file in assets/css/**/*.scss; do
     sed '/^---$/,/^---$/d' "$file" > "$temp_file"
     
     # Run stylelint on temp file
-    if ! npx stylelint "$temp_file" --config .stylelintrc.json 2>&1 | sed "s|$temp_file|$file|g"; then
+    if ! npx stylelint "$temp_file" 2>&1 | sed "s|$temp_file|$file|g"; then
       EXIT_CODE=1
     fi
   fi
