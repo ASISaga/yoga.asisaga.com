@@ -28,15 +28,13 @@ sed '/^---$/,/^---$/d' assets/css/main.scss > "$TEMP_SCSS"
 
 # Compile SCSS with theme in load path
 echo "🔨 Compiling SCSS..."
-npx sass \
+if npx sass \
   --no-source-map \
   --load-path="$THEME_DIR/_sass" \
   --load-path="_sass" \
   --load-path="assets/css" \
   --style=expanded \
-  "$TEMP_SCSS":_site/assets/css/main.css
-
-if [ $? -eq 0 ]; then
+  "$TEMP_SCSS":_site/assets/css/main.css; then
   echo "✅ SCSS compilation successful!"
   echo "📄 Output: _site/assets/css/main.css"
   

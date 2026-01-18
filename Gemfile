@@ -3,9 +3,6 @@ source "https://rubygems.org"
 # Use GitHub Pages gem for compatibility
 gem "github-pages", group: :jekyll_plugins
 
-# Add sass for local SCSS compilation testing
-gem "sass", "~> 3.7"
-
 group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-seo-tag"
