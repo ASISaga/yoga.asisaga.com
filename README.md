@@ -21,13 +21,25 @@ The website consists of three main HTML pages:
 
 ## Technical Stack
 
-- **Jekyll 4.3+** - Static site generator
+- **Jekyll 3.10** (GitHub Pages) / **4.3+** (local development) - Static site generator
 - **Genesis Ontological Theme** - Remote theme from ASISaga/theme.asisaga.com
 - **Bootstrap Grid** - Layout system (provided by theme's compatibility layer)
 - **Liquid Templates** - Template language
 - **SCSS** - Styling preprocessor with ontological mixins
 - **Stylelint** - SCSS validation and linting
+- **Sass/Dart-Sass** - SCSS compilation for testing
 - **HTML5** - Semantic markup
+
+### Theme System
+
+This site uses the [Genesis Ontological SCSS System](https://github.com/ASISaga/theme.asisaga.com) via `jekyll-remote-theme`. The theme provides:
+
+- 6 semantic categories (Environment, Entity, Cognition, Synapse, State, Atmosphere)
+- 31 total ontological variants
+- Zero raw CSS properties in subdomain code - all styling via semantic mixins
+- Automatic Bootstrap compatibility layer
+
+See [ONTOLOGICAL-MAPPINGS.md](./ONTOLOGICAL-MAPPINGS.md) for details on how ontological mixins are applied to this site.
 
 ## Getting Started
 
@@ -55,12 +67,25 @@ bundle exec jekyll serve
 # The site will be available at http://localhost:4000
 ```
 
-### Linting
+### Linting and Testing
 
 ```bash
 # Lint SCSS files
 npm run lint:scss
+
+# Test SCSS compilation (downloads remote theme and compiles)
+npm run compile:scss
+
+# Run both lint and compile tests
+npm run test:scss
 ```
+
+**Note on SCSS Testing:** The `compile:scss` script downloads the Genesis Ontological Theme from GitHub and compiles the SCSS files locally using dart-sass. This ensures that:
+- All `@import` statements resolve correctly
+- Ontological mixins are available and work as expected
+- The compiled CSS output is valid
+
+For Jekyll builds (local or GitHub Pages), use `bundle exec jekyll build` which handles theme loading automatically.
 
 ## Development
 
