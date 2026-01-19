@@ -8,7 +8,7 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   
-  <!-- Custom CSS (includes ontological theme with Bootstrap compatibility layer) -->
+  <!-- Genesis Ontological Theme CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   
   {% feed_meta %}
@@ -17,22 +17,22 @@
 <body>
   
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.title | default: 'Yoga ASISaga' }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="site-navigation" role="navigation" aria-label="Main navigation">
+    <div class="navigation-container">
+      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title | default: 'Yoga ASISaga' }}</a>
+      <button class="navigation-toggle" type="button" aria-controls="navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navigation-toggle-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+      <div class="navigation-menu" id="navigation-menu">
+        <ul class="navigation-links">
+          <li class="navigation-item">
+            <a class="navigation-link{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link{% if page.url contains 'parts-of-mind' %} active{% endif %}" href="{{ '/parts-of-mind/' | relative_url }}">Parts of Mind</a>
+          <li class="navigation-item">
+            <a class="navigation-link{% if page.url contains 'parts-of-mind' %} active{% endif %}" href="{{ '/parts-of-mind/' | relative_url }}">Parts of Mind</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link{% if page.url contains 'about' %} active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+          <li class="navigation-item">
+            <a class="navigation-link{% if page.url contains 'about' %} active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
           </li>
         </ul>
       </div>
@@ -45,16 +45,16 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white mt-5 py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h5>{{ site.title }}</h5>
-          <p class="small">{{ site.description }}</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h5 class="footer-title">{{ site.title }}</h5>
+          <p class="footer-description">{{ site.description }}</p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <p class="small mb-0">Part of the <a href="https://github.com/ASISaga" class="text-white">ASISaga</a> project</p>
-          <p class="small mb-0">&copy; {% assign currentYear = 'now' | date: '%Y' %}{{ currentYear }} ASISaga</p>
+        <div class="footer-section">
+          <p class="footer-text">Part of the <a href="https://github.com/ASISaga" class="footer-link">ASISaga</a> project</p>
+          <p class="footer-text">&copy; {% assign currentYear = 'now' | date: '%Y' %}{{ currentYear }} ASISaga</p>
         </div>
       </div>
     </div>

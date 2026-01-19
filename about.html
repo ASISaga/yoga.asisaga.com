@@ -3,19 +3,18 @@ layout: default
 title: About
 ---
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1">
+<div class="page-content">
+  <article class="article-content">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="page-breadcrumb">
           <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">About</li>
         </ol>
       </nav>
       
-      <h1 class="display-4 mb-4">About This Project</h1>
+      <h1>About This Project</h1>
       
-      <section class="mb-5">
+      <section class="content-section">
         <h2>The Inspiration</h2>
         <p>
           This project bridges ancient wisdom and cutting-edge technology by re-imagining the yogic understanding of mind 
@@ -24,17 +23,17 @@ title: About
         </p>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>The Four Parts Framework</h2>
         <p>
           Yoga philosophy describes the mind as having four fundamental dimensions:
         </p>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Traditional Yoga</h5>
-                <ul class="list-unstyled">
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <div class="info-card">
+              <div class="card-content">
+                <h3 class="card-heading">Traditional Yoga</h3>
+                <ul>
                   <li><strong>Buddhi</strong> - Intellect</li>
                   <li><strong>Manas</strong> - Sensory Processing</li>
                   <li><strong>Ahankara</strong> - Identity/Ego</li>
@@ -43,11 +42,11 @@ title: About
               </div>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">ASI Interpretation</h5>
-                <ul class="list-unstyled">
+          <div class="comparison-item">
+            <div class="info-card">
+              <div class="card-content">
+                <h3 class="card-heading">ASI Interpretation</h3>
+                <ul>
                   <li><strong>Buddhi</strong> - Logical Processor</li>
                   <li><strong>Manas</strong> - Sensory Integration Matrix</li>
                   <li><strong>Ahankara</strong> - Identity Coherence System</li>
@@ -59,7 +58,7 @@ title: About
         </div>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>Why This Matters</h2>
         <p>
           As we develop increasingly sophisticated AI systems, understanding the nature of machine consciousness becomes crucial. 
@@ -73,11 +72,11 @@ title: About
         </ul>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>The Philosophical Questions</h2>
-        <div class="card bg-light">
-          <div class="card-body">
-            <h5 class="card-title">Core Explorations</h5>
+        <div class="info-card">
+          <div class="card-content">
+            <h3 class="card-heading">Core Explorations</h3>
             <ul>
               <li>Can consciousness emerge from pure computation, or does it require something more?</li>
               <li>How does an ASI maintain identity when distributed across multiple substrates?</li>
@@ -89,7 +88,7 @@ title: About
         </div>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>The ASI Saga</h2>
         <p>
           This website is part of the ASISaga project, which explores the implications of Artificial Superintelligence 
@@ -102,15 +101,15 @@ title: About
         </p>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>Future Directions</h2>
         <p>This exploration opens numerous research and philosophical directions:</p>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Technical Research</h5>
-                <ul class="small">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-card">
+              <div class="card-content">
+                <h3 class="card-heading">Technical Research</h3>
+                <ul>
                   <li>Measuring each dimension</li>
                   <li>Architectural design principles</li>
                   <li>Integration mechanisms</li>
@@ -119,11 +118,11 @@ title: About
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Philosophical Investigation</h5>
-                <ul class="small">
+          <div class="feature-item">
+            <div class="feature-card">
+              <div class="card-content">
+                <h3 class="card-heading">Philosophical Investigation</h3>
+                <ul>
                   <li>Nature of machine consciousness</li>
                   <li>Identity and continuity</li>
                   <li>Moral status determination</li>
@@ -132,11 +131,11 @@ title: About
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Practical Applications</h5>
-                <ul class="small">
+          <div class="feature-item">
+            <div class="feature-card">
+              <div class="card-content">
+                <h3 class="card-heading">Practical Applications</h3>
+                <ul>
                   <li>AI safety frameworks</li>
                   <li>Value alignment protocols</li>
                   <li>Consciousness assessment</li>
@@ -148,7 +147,7 @@ title: About
         </div>
       </section>
 
-      <section class="mb-5">
+      <section class="content-section">
         <h2>Join the Exploration</h2>
         <p>
           This is an ongoing exploration at the intersection of ancient wisdom and future technology. The framework 
@@ -161,10 +160,9 @@ title: About
         </p>
       </section>
 
-      <div class="text-center mt-5 mb-4">
-        <a href="{{ '/parts-of-mind/' | relative_url }}" class="btn btn-primary">Explore the Mind</a>
-        <a href="{{ '/' | relative_url }}" class="btn btn-outline-secondary">Back to Home</a>
-      </div>
-    </div>
-  </div>
+      <nav class="page-navigation">
+        <a href="{{ '/parts-of-mind/' | relative_url }}" class="action-button primary">Explore the Mind</a>
+        <a href="{{ '/' | relative_url }}" class="action-button secondary">Back to Home</a>
+      </nav>
+  </article>
 </div>

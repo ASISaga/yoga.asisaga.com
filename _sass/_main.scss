@@ -12,57 +12,240 @@
  */
 
 /**
- * Hero Section - Landing page introduction
- * Environment: Focused (narrative reading experience)
- * Entity: Primary (elevated, featured content)
- * Atmosphere: Ethereal (light, peaceful introduction)
+ * ============================================================================
+ * NAVIGATION
+ * ============================================================================
  */
+
+.site-navigation {
+  @include genesis-environment('navigation-primary');
+  @include genesis-entity('primary');
+}
+
+.navigation-container {
+  @include genesis-environment('associative');
+}
+
+.site-brand {
+  @include genesis-cognition('axiom');
+  @include genesis-synapse('navigate');
+}
+
+.navigation-toggle {
+  @include genesis-synapse('execute');
+}
+
+.navigation-menu {
+  @include genesis-environment('associative');
+}
+
+.navigation-links {
+  @include genesis-environment('associative');
+}
+
+.navigation-item {
+  @include genesis-entity('secondary');
+}
+
+.navigation-link {
+  @include genesis-synapse('navigate');
+  
+  &.active {
+    @include genesis-state('stable');
+  }
+}
+
+/**
+ * ============================================================================
+ * FOOTER
+ * ============================================================================
+ */
+
+.site-footer {
+  @include genesis-environment('associative');
+  @include genesis-entity('secondary');
+  @include genesis-atmosphere('neutral');
+}
+
+.footer-container {
+  @include genesis-environment('associative');
+}
+
+.footer-content {
+  @include genesis-environment('associative');
+}
+
+.footer-section {
+  @include genesis-entity('secondary');
+}
+
+.footer-title {
+  @include genesis-cognition('axiom');
+}
+
+.footer-description,
+.footer-text {
+  @include genesis-cognition('discourse');
+}
+
+.footer-link {
+  @include genesis-synapse('navigate');
+}
+
+/**
+ * ============================================================================
+ * HERO SECTION (Homepage)
+ * ============================================================================
+ */
+
 .hero-section {
   @include genesis-environment('focused');
   @include genesis-entity('primary');
   @include genesis-atmosphere('ethereal');
-  
-  h1 {
-    @include genesis-cognition('axiom');
-  }
-  
-  .lead {
-    @include genesis-cognition('discourse');
-  }
+}
+
+.hero-content {
+  @include genesis-environment('focused');
+}
+
+.hero-title {
+  @include genesis-cognition('axiom');
+}
+
+.hero-subtitle {
+  @include genesis-cognition('discourse');
+}
+
+.hero-action {
+  @include genesis-synapse('execute');
+}
+
+/**
+ * ============================================================================
+ * PAGE SECTIONS
+ * ============================================================================
+ */
+
+.page-section {
+  @include genesis-environment('chronological');
+}
+
+.page-content {
+  @include genesis-environment('chronological');
+}
+
+.section-header {
+  @include genesis-entity('secondary');
+}
+
+.section-title {
+  @include genesis-cognition('motive');
+}
+
+/**
+ * ============================================================================
+ * MIND PARTS GRID (Homepage)
+ * ============================================================================
+ */
+
+.mind-parts-grid {
+  @include genesis-environment('distributed');
+}
+
+.mind-part-card {
+  @include genesis-entity('primary');
+}
+
+.card-content {
+  @include genesis-entity('secondary');
+}
+
+.card-heading {
+  @include genesis-cognition('axiom');
+}
+
+.card-subheading {
+  @include genesis-cognition('gloss');
+}
+
+.card-description {
+  @include genesis-cognition('discourse');
+}
+
+.card-action {
+  @include genesis-synapse('navigate');
+}
+
+/**
+ * ============================================================================
+ * ABOUT SECTION (Homepage)
+ * ============================================================================
+ */
+
+.about-section {
+  @include genesis-environment('focused');
+}
+
+.about-content {
+  @include genesis-environment('focused');
+}
+
+.about-title {
+  @include genesis-cognition('motive');
+}
+
+.about-text {
+  @include genesis-cognition('discourse');
+}
+
+.about-actions {
+  @include genesis-environment('associative');
+}
+
+.about-action {
+  @include genesis-synapse('inquiry');
+}
+
+/**
+ * ============================================================================
+ * ARTICLE LAYOUT (Parts of Mind, About)
+ * ============================================================================
+ */
+
+.article-content {
+  @include genesis-environment('focused');
+}
+
+/**
+ * ============================================================================
+ * BREADCRUMB NAVIGATION
+ * ============================================================================
+ */
+
+.page-breadcrumb {
+  @include genesis-environment('navigation-secondary');
   
   a {
-    @include genesis-synapse('navigate');  // Link to parts-of-mind page
+    @include genesis-synapse('navigate');
   }
 }
 
-/**
- * Content Containers
- * Environment: Distributed (card grid layout)
- */
-.container {
-  .row {
-    @include genesis-environment('distributed');
-  }
-}
-
-/**
- * Mind Part Cards - Homepage grid
- * Entity: Primary (featured content blocks)
- */
-.card {
-  @include genesis-entity('primary');
+.breadcrumb-item {
+  @include genesis-entity('secondary');
   
-  .card-title {
-    @include genesis-cognition('axiom');
-  }
-  
-  .card-subtitle {
+  &.active {
     @include genesis-cognition('gloss');
   }
-  
-  .card-text {
-    @include genesis-cognition('discourse');
-  }
+}
+
+/**
+ * ============================================================================
+ * NOTICES & ALERTS
+ * ============================================================================
+ */
+
+.info-notice {
+  @include genesis-entity('latent');
   
   a {
     @include genesis-synapse('navigate');
@@ -70,9 +253,15 @@
 }
 
 /**
- * Mind Part Detail Cards - Parts of mind page
- * Entity: Primary with color-coded headers
+ * ============================================================================
+ * DETAIL CARDS (Parts of Mind page)
+ * ============================================================================
  */
+
+.detail-card {
+  @include genesis-entity('primary');
+}
+
 .card-header {
   @include genesis-entity('primary');
   
@@ -82,167 +271,150 @@
 }
 
 .card-body {
-  @include genesis-entity('secondary');  // Card body is supporting content (vs primary card header)
+  @include genesis-entity('secondary');
   
   p {
-    @include genesis-cognition('discourse');  // Body text
+    @include genesis-cognition('discourse');
   }
   
   h4, h5 {
-    @include genesis-cognition('motive');  // Persuasive subheadings
+    @include genesis-cognition('motive');
   }
   
   ul, ol {
-    @include genesis-cognition('protocol');  // Structured, technical lists
+    @include genesis-cognition('protocol');
   }
   
   a {
-    @include genesis-synapse('navigate');  // Navigation links
+    @include genesis-synapse('navigate');
   }
 }
 
 /**
- * Border Variants for Mind Parts
- * Uses entity variants for semantic color coding
+ * ============================================================================
+ * INTEGRATION & PRACTICES GRIDS (Parts of Mind page)
+ * ============================================================================
  */
-.border-primary {
-  @include genesis-entity('primary');
+
+.integration-grid,
+.practices-grid {
+  @include genesis-environment('distributed');
 }
 
-.border-success {
+.integration-column,
+.practice-card {
   @include genesis-entity('secondary');
+  
+  h4 {
+    @include genesis-cognition('motive');
+  }
+  
+  ul, ol {
+    @include genesis-cognition('protocol');
+  }
 }
 
-.border-warning {
-  @include genesis-entity('imperative');
-}
+/**
+ * ============================================================================
+ * QUOTES
+ * ============================================================================
+ */
 
-.border-info {
+.philosophical-quote {
+  @include genesis-cognition('discourse');
   @include genesis-entity('latent');
 }
 
 /**
- * Page Structure Elements
- * Environment: Focused (reading-optimized)
- * 
- * Note: Using Bootstrap grid classes as selectors for backward compatibility.
- * Future: Consider adding semantic wrapper like .article-container for cleaner separation.
+ * ============================================================================
+ * PAGE NAVIGATION
+ * ============================================================================
  */
-.col-lg-10.offset-lg-1 {
-  @include genesis-environment('focused');
-}
 
-/**
- * Typography Hierarchy
- */
-h1, .display-3, .display-4 {
-  @include genesis-cognition('axiom');
-}
-
-h2 {
-  @include genesis-cognition('motive');
-}
-
-h3, h4 {
-  @include genesis-cognition('protocol');
-}
-
-h5, h6 {
-  @include genesis-cognition('gloss');
-}
-
-p {
-  @include genesis-cognition('discourse');
-}
-
-.lead {
-  @include genesis-cognition('discourse');
-}
-
-/**
- * Navigation Elements
- */
-.breadcrumb {
+.page-navigation {
   @include genesis-environment('associative');
-  
-  a {
-    @include genesis-synapse('navigate');
-  }
-}
-
-.navbar-brand {
-  @include genesis-cognition('axiom');
-}
-
-.nav-link {
-  @include genesis-synapse('navigate');
 }
 
 /**
- * Alert Boxes - Information callouts
- * Entity: Secondary (supporting context)
+ * ============================================================================
+ * ACTION BUTTONS
+ * ============================================================================
  */
-.alert {
-  @include genesis-entity('secondary');
-  
-  &.alert-info {
-    @include genesis-entity('latent');
-  }
-  
-  &.alert-warning {
-    @include genesis-entity('imperative');
-  }
-  
-  a {
-    @include genesis-synapse('navigate');
-  }
-}
 
-/**
- * Blockquotes
- * Cognition: Discourse (quoted text)
- */
-blockquote {
-  @include genesis-cognition('discourse');
-}
-
-/**
- * Footer
- * Environment: Associative (connected links)
- */
-footer {
-  @include genesis-environment('associative');
-  
-  a {
-    @include genesis-synapse('navigate');
-  }
-}
-
-/**
- * Buttons and Actions
- */
-.btn {
+.action-button {
   @include genesis-synapse('execute');
   
-  &.btn-outline-primary,
-  &.btn-outline-secondary {
+  &.primary {
+    @include genesis-entity('primary');
+  }
+  
+  &.secondary {
     @include genesis-synapse('inquiry');
   }
 }
 
 /**
- * Utility Classes
- * 
- * Bootstrap utility classes (e.g., .text-center, .text-start, spacing utilities) 
- * are layout/positioning helpers without semantic ontological meaning. The theme's
- * Bootstrap compatibility layer provides their implementations automatically.
- * 
- * Only utilities with semantic meaning (like .text-muted) need ontological mapping.
- * 
- * See theme compatibility layer:
- * https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/components/_bootstrap-compat.scss
+ * ============================================================================
+ * INFO CARDS (About page)
+ * ============================================================================
  */
 
-.text-muted {
-  @include genesis-cognition('gloss');  // Metadata/secondary text
+.comparison-grid {
+  @include genesis-environment('distributed');
+}
+
+.comparison-item {
+  @include genesis-entity('secondary');
+}
+
+.info-card {
+  @include genesis-entity('secondary');
+}
+
+.card-heading {
+  @include genesis-cognition('axiom');
+}
+
+/**
+ * ============================================================================
+ * FEATURES GRID (About page)
+ * ============================================================================
+ */
+
+.features-grid {
+  @include genesis-environment('distributed');
+}
+
+.feature-item {
+  @include genesis-entity('secondary');
+}
+
+.feature-card {
+  @include genesis-entity('secondary');
+  
+  h4, h5 {
+    @include genesis-cognition('motive');
+  }
+  
+  ul {
+    @include genesis-cognition('protocol');
+  }
+}
+
+/**
+ * ============================================================================
+ * CONTENT SECTIONS
+ * ============================================================================
+ */
+
+.content-section {
+  @include genesis-environment('chronological');
+  
+  h2 {
+    @include genesis-cognition('motive');
+  }
+  
+  p {
+    @include genesis-cognition('discourse');
+  }
 }
