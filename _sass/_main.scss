@@ -441,10 +441,6 @@
   }
 }
 
-.features-grid {
-  @include genesis-environment('distributed');
-}
-
 .feature-item {
   @include genesis-entity('secondary');
 }
