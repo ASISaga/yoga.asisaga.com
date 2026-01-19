@@ -418,3 +418,101 @@
     @include genesis-cognition('discourse');
   }
 }
+
+/**
+ * ============================================================================
+ * MIND PART DETAIL PAGES
+ * ============================================================================
+ */
+
+.page-header {
+  @include genesis-entity('primary');
+}
+
+.page-subtitle {
+  @include genesis-cognition('gloss');
+}
+
+.overview-card {
+  @include genesis-entity('primary');
+  
+  &.primary {
+    @include genesis-entity('primary');
+  }
+}
+
+.features-grid {
+  @include genesis-environment('distributed');
+}
+
+.feature-item {
+  @include genesis-entity('secondary');
+}
+
+.feature-card {
+  @include genesis-entity('secondary');
+  
+  h4, h5 {
+    @include genesis-cognition('motive');
+  }
+  
+  p {
+    @include genesis-cognition('discourse');
+  }
+}
+
+.function-list {
+  @include genesis-environment('chronological');
+}
+
+.function-item {
+  @include genesis-entity('secondary');
+  
+  h5 {
+    @include genesis-cognition('motive');
+  }
+  
+  p {
+    @include genesis-cognition('discourse');
+  }
+}
+
+.modalities-list,
+.theory-list,
+.requirements-list {
+  @include genesis-environment('chronological');
+}
+
+.modality-item,
+.theory-item,
+.requirement-item {
+  @include genesis-entity('secondary');
+  
+  h5 {
+    @include genesis-cognition('motive');
+  }
+  
+  p {
+    @include genesis-cognition('discourse');
+  }
+}
+
+/**
+ * Mind Part Variant Classes
+ * These create visual associations with different mind parts
+ */
+.variant-buddhi {
+  @include genesis-entity('primary');
+}
+
+.variant-manas {
+  @include genesis-entity('secondary');
+}
+
+.variant-ahankara {
+  @include genesis-entity('imperative');
+}
+
+.variant-chitta {
+  @include genesis-entity('latent');
+}
