@@ -18,12 +18,12 @@
   {% endif %}
   
   {% if include.next_url %}
-  <a href="{{ include.next_url | relative_url }}" class="action-button secondary">
+  <a href="{{ include.next_url | relative_url }}" class="action-button primary">
     {{ include.next_text | default: "Next →" }}
   </a>
   {% endif %}
   
-  <a href="{{ include.back_url | default: '/parts-of-mind/' | relative_url }}" class="action-button primary">
+  <a href="{{ include.back_url | default: '/parts-of-mind/' | relative_url }}" class="action-button secondary">
     {{ include.back_text | default: "Back to Overview" }}
   </a>
 </nav>

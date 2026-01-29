@@ -70,7 +70,13 @@ npm run lint:scss
 yoga.asisaga.com/
 ├── _config.yml              # Jekyll configuration
 ├── _layouts/
-│   └── default.html         # Main layout template
+│   ├── default.html         # Main layout template
+│   ├── article.html         # Article layout for content pages
+│   └── detail.html          # Detail layout for mind part pages
+├── _includes/
+│   ├── breadcrumb.html      # Reusable breadcrumb navigation
+│   ├── page-header.html     # Reusable page header component
+│   └── detail-navigation.html # Reusable detail page navigation
 ├── _sass/
 │   └── _main.scss           # Site-specific ontological mappings
 ├── assets/
