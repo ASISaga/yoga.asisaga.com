@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% comment %}
+  Detail layout for mind part detail pages
+  
+  This layout is used for Buddhi, Manas, Ahankara, and Chitta detail pages.
+  It provides consistent structure with breadcrumb, header, and navigation.
+  
+  Front matter variables:
+  - title: Page title (required)
+  - subtitle: Page subtitle (optional)
+  - previous_url: URL of previous page in sequence (optional)
+  - previous_text: Text for previous link (optional)
+  - next_url: URL of next page in sequence (optional)  
+  - next_text: Text for next link (optional)
+{% endcomment %}
+
+<div class="page-content">
+  <div class="article-content">
+    {% include breadcrumb.html 
+      parent_url="/parts-of-mind/" 
+      parent_title="Parts of Mind" %}
+    
+    {% include page-header.html %}
+    
+    {{ content }}
+    
+    {% include detail-navigation.html 
+      previous_url=page.previous_url
+      previous_text=page.previous_text
+      next_url=page.next_url
+      next_text=page.next_text %}
+  </div>
+</div>

@@ -70,10 +70,18 @@ npm run lint:scss
 yoga.asisaga.com/
 ├── _config.yml              # Jekyll configuration
 ├── _layouts/
-│   └── default.html         # Main layout template
+│   ├── default.html         # Main layout template
+│   ├── article.html         # Article layout for content pages
+│   └── detail.html          # Detail layout for mind part pages
+├── _includes/
+│   ├── breadcrumb.html      # Reusable breadcrumb navigation
+│   ├── page-header.html     # Reusable page header component
+│   └── detail-navigation.html # Reusable detail page navigation
+├── _sass/
+│   └── _main.scss           # Site-specific ontological mappings
 ├── assets/
 │   ├── css/
-│   │   └── main.scss        # Custom styles
+│   │   └── main.scss        # Jekyll SCSS entry point
 │   └── js/
 │       └── main.js          # Custom JavaScript
 ├── .github/
@@ -85,6 +93,10 @@ yoga.asisaga.com/
 ├── index.html               # Home page
 ├── parts-of-mind.html       # Main content page
 ├── about.html               # About page
+├── buddhi.html              # Buddhi detail page
+├── manas.html               # Manas detail page
+├── ahankara.html            # Ahankara detail page
+├── chitta.html              # Chitta detail page
 ├── parts-of-mind-asi.md     # Detailed reference document
 └── Gemfile                  # Ruby dependencies
 ```

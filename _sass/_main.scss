@@ -11,6 +11,9 @@
  * See: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
  */
 
+// REQUIRED: Import Genesis Ontology first
+@import "ontology/index";
+
 /**
  * ============================================================================
  * NAVIGATION

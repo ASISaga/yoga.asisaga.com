@@ -1,0 +1,16 @@
+---
+# Jekyll needs front matter for SCSS compilation
+---
+
+/**
+ * Yoga ASISaga - Main SCSS Entry Point
+ * 
+ * This file serves as the Jekyll SCSS compilation entry point.
+ * It imports the ontological theme from the remote theme and
+ * site-specific ontological mappings from _sass/_main.scss.
+ * 
+ * Jekyll will compile this to assets/css/main.css during build.
+ */
+
+// Import site-specific ontological mappings
+@import "main";
