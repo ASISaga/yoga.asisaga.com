@@ -1,0 +1,29 @@
+{% comment %}
+  Detail page navigation component
+  
+  Parameters:
+  - previous_url: URL of the previous page
+  - previous_text: Text for previous link (default: "← Previous")
+  - next_url: URL of the next page
+  - next_text: Text for next link (default: "Next →")
+  - back_url: URL to return to (default: '/parts-of-mind/')
+  - back_text: Text for back link (default: "Back to Overview")
+{% endcomment %}
+
+<nav class="page-navigation">
+  {% if include.previous_url %}
+  <a href="{{ include.previous_url | relative_url }}" class="action-button secondary">
+    {{ include.previous_text | default: "← Previous" }}
+  </a>
+  {% endif %}
+  
+  {% if include.next_url %}
+  <a href="{{ include.next_url | relative_url }}" class="action-button secondary">
+    {{ include.next_text | default: "Next →" }}
+  </a>
+  {% endif %}
+  
+  <a href="{{ include.back_url | default: '/parts-of-mind/' | relative_url }}" class="action-button primary">
+    {{ include.back_text | default: "Back to Overview" }}
+  </a>
+</nav>

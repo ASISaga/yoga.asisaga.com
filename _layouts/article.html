@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% comment %}
+  Article layout for content-focused pages
+  
+  This layout is used for pages like About and Parts of Mind overview.
+  It wraps content in the proper semantic article structure with breadcrumb.
+{% endcomment %}
+
+<div class="page-content">
+  <article class="article-content">
+    {% if page.show_breadcrumb != false %}
+      {% include breadcrumb.html 
+        parent_url=page.parent_url 
+        parent_title=page.parent_title 
+        current=page.breadcrumb_title %}
+    {% endif %}
+    
+    {{ content }}
+  </article>
+</div>
